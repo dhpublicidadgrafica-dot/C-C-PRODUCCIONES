@@ -20,6 +20,7 @@ import { ServiceId } from '../types';
 
 interface NavbarProps {
   activeTab: string;
+  currentPath?: string;
   setActiveTab: (tab: string) => void;
   selectedServiceId: ServiceId | null;
   onSelectService: (id: ServiceId) => void;
@@ -30,6 +31,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({
   activeTab,
+  currentPath = '/',
   setActiveTab,
   selectedServiceId,
   onSelectService,
@@ -48,8 +50,9 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (tabId: string) => {
-    setActiveTab(tabId);
+  const handleNavClick = (path: string, e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    setActiveTab(path);
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -66,8 +69,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center justify-between relative">
           
           {/* LOGO */}
-          <button 
-            onClick={() => handleNavClick('home')}
+          <a 
+            href="/"
+            onClick={(e) => handleNavClick('/', e)}
             className="flex items-center gap-3 group text-left focus:outline-none cursor-pointer"
             id="cyc-logo-button"
           >
@@ -85,66 +89,91 @@ export const Navbar: React.FC<NavbarProps> = ({
                 LOGISTICA & EVENTOS
               </span>
             </div>
-          </button>
+          </a>
 
           {/* DESKTOP NAVIGATION (CENTERED) */}
           <nav className="hidden lg:flex items-center gap-1 bg-zinc-900/80 p-1.5 rounded-full border border-zinc-800/80 shadow-inner lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-            <button
-              onClick={() => handleNavClick('home')}
+            <a
+              href="/"
+              onClick={(e) => handleNavClick('/', e)}
               className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
-                activeTab === 'home' && !selectedServiceId
+                (activeTab === 'home' || currentPath === '/') && !selectedServiceId
                   ? 'bg-amber-400 text-zinc-950 shadow-md shadow-amber-400/20 font-bold'
                   : 'text-zinc-300 hover:text-white hover:bg-zinc-800/60'
               }`}
             >
               Inicio
-            </button>
+            </a>
 
-            <button
-              onClick={() => handleNavClick('quienes-somos')}
+            <a
+              href="/nosotros"
+              onClick={(e) => handleNavClick('/nosotros', e)}
               className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
-                activeTab === 'quienes-somos'
+                activeTab === 'quienes-somos' || activeTab === 'nosotros' || currentPath === '/nosotros'
                   ? 'bg-amber-400 text-zinc-950 shadow-md shadow-amber-400/20 font-bold'
                   : 'text-zinc-300 hover:text-white hover:bg-zinc-800/60'
               }`}
             >
               Nosotros
-            </button>
+            </a>
 
             {/* DIRECT BUTTON TO MAIN SERVICES PAGE */}
-            <button
-              onClick={() => handleNavClick('servicios')}
+            <a
+              href="/servicios"
+              onClick={(e) => handleNavClick('/servicios', e)}
               className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
-                activeTab === 'servicios' || activeTab === 'servicio-detalle' || activeTab.startsWith('servicio-')
+                activeTab === 'servicios' || currentPath === '/servicios' || (activeTab.startsWith('servicio-') && !selectedServiceId)
                   ? 'bg-amber-400 text-zinc-950 shadow-md shadow-amber-400/20 font-bold'
                   : 'text-zinc-300 hover:text-white hover:bg-zinc-800/60'
               }`}
             >
               Servicios
-            </button>
+            </a>
 
-            <button
-              onClick={() => handleNavClick('eventos')}
+            <a
+              href="/eventos"
+              onClick={(e) => handleNavClick('/eventos', e)}
               className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
-                activeTab === 'eventos'
+                activeTab === 'eventos' || currentPath === '/eventos'
                   ? 'bg-amber-400 text-zinc-950 shadow-md shadow-amber-400/20 font-bold'
                   : 'text-zinc-300 hover:text-white hover:bg-zinc-800/60'
               }`}
             >
               Eventos
-            </button>
+            </a>
 
-            <button
-              onClick={() => handleNavClick('contacto')}
+            <a
+              href="/contacto"
+              onClick={(e) => handleNavClick('/contacto', e)}
               className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
-                activeTab === 'contacto'
+                activeTab === 'contacto' || currentPath === '/contacto'
                   ? 'bg-amber-400 text-zinc-950 shadow-md shadow-amber-400/20 font-bold'
                   : 'text-zinc-300 hover:text-white hover:bg-zinc-800/60'
               }`}
             >
               Contacto
-            </button>
+            </a>
           </nav>
+
+          {/* RIGHT ACTION BUTTONS */}
+          <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={onOpenAIChat}
+              className="p-2.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-amber-400 hover:text-amber-300 hover:border-amber-500/40 transition-all flex items-center gap-1.5 text-xs font-medium"
+              title="Asistente IA de Eventos"
+            >
+              <Bot className="w-4 h-4" />
+              <span className="hidden xl:inline">CyC AI</span>
+            </button>
+            
+            <button
+              onClick={onOpenQuoteModal}
+              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-zinc-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-amber-400/20 hover:scale-105 transition-all flex items-center gap-2"
+            >
+              <Calendar className="w-3.5 h-3.5" />
+              Cotizar
+            </button>
+          </div>
 
           {/* MOBILE MENU TOGGLE */}
           <div className="flex items-center gap-2 lg:hidden">
@@ -163,48 +192,53 @@ export const Navbar: React.FC<NavbarProps> = ({
       {mobileMenuOpen && (
         <div className="lg:hidden bg-zinc-950/98 border-b border-zinc-800 px-4 pt-4 pb-6 space-y-4 animate-in slide-in-from-top duration-300 max-h-[85vh] overflow-y-auto">
           <div className="grid grid-cols-2 gap-2 pb-3 border-b border-zinc-800">
-            <button
-              onClick={() => handleNavClick('home')}
-              className={`p-2.5 rounded-xl text-xs font-semibold text-left transition-colors ${
-                activeTab === 'home' ? 'bg-amber-400 text-zinc-950 font-bold' : 'bg-zinc-900 text-zinc-300'
+            <a
+              href="/"
+              onClick={(e) => handleNavClick('/', e)}
+              className={`p-2.5 rounded-xl text-xs font-semibold text-left transition-colors block ${
+                activeTab === 'home' || currentPath === '/' ? 'bg-amber-400 text-zinc-950 font-bold' : 'bg-zinc-900 text-zinc-300'
               }`}
             >
               Inicio
-            </button>
-            <button
-              onClick={() => handleNavClick('quienes-somos')}
-              className={`p-2.5 rounded-xl text-xs font-semibold text-left transition-colors ${
-                activeTab === 'quienes-somos' ? 'bg-amber-400 text-zinc-950 font-bold' : 'bg-zinc-900 text-zinc-300'
+            </a>
+            <a
+              href="/nosotros"
+              onClick={(e) => handleNavClick('/nosotros', e)}
+              className={`p-2.5 rounded-xl text-xs font-semibold text-left transition-colors block ${
+                activeTab === 'quienes-somos' || activeTab === 'nosotros' || currentPath === '/nosotros' ? 'bg-amber-400 text-zinc-950 font-bold' : 'bg-zinc-900 text-zinc-300'
               }`}
             >
               Nosotros
-            </button>
-            <button
-              onClick={() => handleNavClick('servicios')}
-              className={`p-2.5 rounded-xl text-xs font-semibold text-left transition-colors ${
-                activeTab === 'servicios' || activeTab.startsWith('servicio-') ? 'bg-amber-400 text-zinc-950 font-bold' : 'bg-zinc-900 text-zinc-300'
+            </a>
+            <a
+              href="/servicios"
+              onClick={(e) => handleNavClick('/servicios', e)}
+              className={`p-2.5 rounded-xl text-xs font-semibold text-left transition-colors block ${
+                activeTab === 'servicios' || currentPath === '/servicios' ? 'bg-amber-400 text-zinc-950 font-bold' : 'bg-zinc-900 text-zinc-300'
               }`}
             >
               Servicios
-            </button>
+            </a>
 
-            <button
-              onClick={() => handleNavClick('eventos')}
-              className={`p-2.5 rounded-xl text-xs font-semibold text-left transition-colors ${
-                activeTab === 'eventos' ? 'bg-amber-400 text-zinc-950 font-bold' : 'bg-zinc-900 text-zinc-300'
+            <a
+              href="/eventos"
+              onClick={(e) => handleNavClick('/eventos', e)}
+              className={`p-2.5 rounded-xl text-xs font-semibold text-left transition-colors block ${
+                activeTab === 'eventos' || currentPath === '/eventos' ? 'bg-amber-400 text-zinc-950 font-bold' : 'bg-zinc-900 text-zinc-300'
               }`}
             >
               Eventos
-            </button>
+            </a>
 
-            <button
-              onClick={() => handleNavClick('contacto')}
-              className={`p-2.5 rounded-xl text-xs font-semibold text-left transition-colors ${
-                activeTab === 'contacto' ? 'bg-amber-400 text-zinc-950 font-bold' : 'bg-zinc-900 text-zinc-300'
+            <a
+              href="/contacto"
+              onClick={(e) => handleNavClick('/contacto', e)}
+              className={`p-2.5 rounded-xl text-xs font-semibold text-left transition-colors block ${
+                activeTab === 'contacto' || currentPath === '/contacto' ? 'bg-amber-400 text-zinc-950 font-bold' : 'bg-zinc-900 text-zinc-300'
               }`}
             >
               Contacto
-            </button>
+            </a>
           </div>
 
           <div className="pt-2 flex flex-col gap-2">

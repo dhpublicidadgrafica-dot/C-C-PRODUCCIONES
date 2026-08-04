@@ -57,13 +57,17 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       
       {/* TOP NAVIGATION BACK BUTTON */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-        <button
-          onClick={onBackToServices}
+        <a
+          href="/servicios"
+          onClick={(e) => {
+            e.preventDefault();
+            onBackToServices();
+          }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-300 hover:text-white hover:border-amber-400 transition-colors cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4 text-amber-400" />
           Volver al Catálogo de Servicios
-        </button>
+        </a>
       </div>
 
       {/* SERVICE HERO BANNER */}

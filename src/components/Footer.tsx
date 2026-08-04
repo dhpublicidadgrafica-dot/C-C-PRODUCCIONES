@@ -82,12 +82,16 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-2 text-xs text-gray-400 font-poppins font-normal">
               {SERVICES_DATA.map((s) => (
                 <li key={s.id}>
-                  <button 
-                    onClick={() => onSelectService(s.id)}
-                    className="hover:text-[#C99327] transition-colors text-left"
+                  <a 
+                    href={`/servicios/${s.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onSelectService(s.id);
+                    }}
+                    className="hover:text-[#C99327] transition-colors text-left block"
                   >
                     {s.name}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
