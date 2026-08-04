@@ -158,15 +158,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* RIGHT ACTION BUTTONS */}
           <div className="hidden lg:flex items-center gap-3">
             <button
-              onClick={onOpenAIChat}
-              className="p-2.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-amber-400 hover:text-amber-300 hover:border-amber-500/40 transition-all flex items-center gap-1.5 text-xs font-medium"
-              title="Asistente IA de Eventos"
-            >
-              <Bot className="w-4 h-4" />
-              <span className="hidden xl:inline">CyC AI</span>
-            </button>
-            
-            <button
               onClick={onOpenQuoteModal}
               className="px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-zinc-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-amber-400/20 hover:scale-105 transition-all flex items-center gap-2"
             >
