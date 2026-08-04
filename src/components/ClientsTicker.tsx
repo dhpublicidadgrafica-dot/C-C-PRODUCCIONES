@@ -1,24 +1,8 @@
-import React, { useState } from 'react';
-import { Sparkles, Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import React from 'react';
+import { Sparkles, Star, Quote } from 'lucide-react';
 import { CLIENT_LOGOS, TESTIMONIALS_DATA } from '../data/clientsData';
 
 export const ClientsTicker: React.FC = () => {
-  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
-
-  const prevTestimonial = () => {
-    setCurrentTestimonialIndex(prev => 
-      prev === 0 ? TESTIMONIALS_DATA.length - 1 : prev - 1
-    );
-  };
-
-  const nextTestimonial = () => {
-    setCurrentTestimonialIndex(prev => 
-      prev === TESTIMONIALS_DATA.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const currentTestimonial = TESTIMONIALS_DATA[currentTestimonialIndex];
-
   return (
     <section className="py-20 bg-white text-zinc-900 relative border-t border-zinc-200" id="clientes-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,57 +38,58 @@ export const ClientsTicker: React.FC = () => {
           </div>
         </div>
 
-        {/* TESTIMONIAL SLIDER */}
-        <div className="max-w-2xl mx-auto bg-zinc-50 border border-zinc-200/80 rounded-2xl p-5 sm:p-6 relative shadow-md">
-          <Quote className="w-8 h-8 text-amber-500/20 absolute top-4 left-4" />
+        {/* 3 INDEPENDENT SEPARATE TESTIMONIAL BLOCKS */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8" id="testimonios-grid">
+          {TESTIMONIALS_DATA.map((item) => (
+            <div
+              key={item.id}
+              id={`testimonio-card-${item.id}`}
+              className="bg-zinc-50 border border-zinc-200/90 rounded-2xl p-6 sm:p-7 relative shadow-sm hover:shadow-xl hover:border-amber-500/50 hover:bg-white transition-all duration-300 flex flex-col justify-between group"
+            >
+              {/* TOP ACCENT & QUOTE */}
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  {/* RATING STARS */}
+                  <div className="flex items-center gap-1 text-amber-500">
+                    {[...Array(item.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
+                    ))}
+                  </div>
+                  <Quote className="w-7 h-7 text-amber-500/25 group-hover:text-amber-500/40 transition-colors" />
+                </div>
 
-          <div className="relative z-10 space-y-4 text-center">
-            
-            {/* RATING STARS */}
-            <div className="flex justify-center gap-1 text-amber-500">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
-              ))}
-            </div>
+                {/* TESTIMONIAL TEXT */}
+                <p className="text-xs sm:text-sm font-normal text-zinc-700 leading-relaxed font-poppins mb-6">
+                  "{item.comment}"
+                </p>
+              </div>
 
-            <p className="text-xs sm:text-sm font-normal text-zinc-700 leading-relaxed max-w-lg mx-auto font-poppins">
-              "{currentTestimonial.comment}"
-            </p>
-
-            <div className="pt-2 flex items-center justify-center gap-3">
-              <img 
-                src={currentTestimonial.avatarUrl} 
-                alt={currentTestimonial.clientName} 
-                className="w-10 h-10 rounded-full object-cover border-2 border-amber-500 shadow-sm"
-              />
-              <div className="text-left">
-                <h4 className="text-xs font-bold text-zinc-900 font-poppins">{currentTestimonial.clientName}</h4>
-                <p className="text-[11px] text-amber-700 font-poppins font-semibold">{currentTestimonial.company}</p>
-                <p className="text-[10px] text-zinc-500 font-poppins font-normal">{currentTestimonial.eventName} • {currentTestimonial.date}</p>
+              {/* CLIENT AUTHOR & EVENT INFO */}
+              <div className="pt-4 border-t border-zinc-200/80 flex items-center gap-3.5">
+                <img 
+                  src={item.avatarUrl} 
+                  alt={item.clientName} 
+                  className="w-11 h-11 rounded-full object-cover border-2 border-amber-500 shadow-sm shrink-0" 
+                  referrerPolicy="no-referrer"
+                />
+                <div className="min-w-0">
+                  <h4 className="text-sm font-bold text-zinc-900 font-poppins truncate">
+                    {item.clientName}
+                  </h4>
+                  <p className="text-xs text-amber-800 font-poppins font-medium truncate">
+                    {item.company}
+                  </p>
+                  <p className="text-[11px] text-zinc-500 font-poppins font-normal truncate mt-0.5">
+                    {item.eventName} • {item.date}
+                  </p>
+                </div>
               </div>
             </div>
-
-            {/* CONTROLS */}
-            <div className="pt-1 flex justify-center gap-2">
-              <button
-                onClick={prevTestimonial}
-                className="p-1.5 rounded-full bg-white hover:bg-zinc-100 text-zinc-700 hover:text-zinc-900 border border-zinc-300 shadow-sm transition-colors"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={nextTestimonial}
-                className="p-1.5 rounded-full bg-white hover:bg-zinc-100 text-zinc-700 hover:text-zinc-900 border border-zinc-300 shadow-sm transition-colors"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-
-          </div>
-
+          ))}
         </div>
 
       </div>
     </section>
   );
 };
+

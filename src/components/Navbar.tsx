@@ -236,16 +236,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenAIChat();
-              }}
-              className="w-full py-2.5 rounded-xl bg-zinc-900 text-amber-400 font-medium text-xs flex items-center justify-center gap-2 border border-zinc-800"
-            >
-              <Bot className="w-4 h-4" />
-              Asistente IA CyC
-            </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
                 onOpenQuoteModal();
               }}
               className="w-full py-3 rounded-xl bg-amber-400 text-zinc-950 font-bold text-xs uppercase tracking-wider"
