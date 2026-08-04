@@ -1,0 +1,6 @@
+{
+  "name": "CyC Producciones - Producción Integral de Eventos",
+  "description": "Sitio web corporativo y cotizador inteligente para CyC Producciones: empresa líder en logística, producción, pantallas LED, sonido, tarimas y carpas para eventos de alto nivel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

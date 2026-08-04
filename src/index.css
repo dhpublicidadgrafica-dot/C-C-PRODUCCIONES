@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-amber-300: #E2B653;
+  --color-amber-400: #C99327;
+  --color-amber-500: #B27F1C;
+  --color-amber-600: #966712;
+  --color-gold: #C99327;
+}
+
+@layer base {
+  body, p, span, div, a, li, input, textarea, button, label, select {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    font-weight: 400;
+    background-color: #050505;
+    color: #F5F5F5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+  }
+
+  p, label, textarea, input, select {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+  }
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-montserrat, .font-mono, .font-serif, .font-heading {
+  font-family: 'Poppins', sans-serif;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 40%, #C99327 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 15px rgba(201, 147, 39, 0.2);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #050505;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #C99327;
+}
+
+/* MARQUEE AUTO-SCROLL ANIMATION */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
