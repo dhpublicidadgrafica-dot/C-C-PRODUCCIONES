@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Sparkles, 
-  X, 
   ArrowLeft,
-  ChevronRight,
   Calculator
 } from 'lucide-react';
-import { PortfolioProject } from '../types';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
 interface EventsViewProps {
@@ -18,8 +15,6 @@ export const EventsView: React.FC<EventsViewProps> = ({
   onBackToHome,
   onOpenQuoteModal,
 }) => {
-  const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
-
   const filteredProjects = PORTFOLIO_DATA;
 
   return (
@@ -60,63 +55,29 @@ export const EventsView: React.FC<EventsViewProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
-              <div
-                key={project.id}
-                onClick={() => {
-                  setSelectedProject(project);
-                }}
-                className="group relative bg-zinc-900/80 border border-zinc-800/80 rounded-3xl overflow-hidden cursor-pointer hover:border-[#C99327]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#C99327]/10 flex flex-col justify-between"
-              >
-                {/* IMAGE CONTAINER */}
-                <div className="relative h-72 overflow-hidden bg-zinc-950">
-                  <img
-                    src={project.coverImage}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-90 group-hover:brightness-100"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <h3 className="text-base font-bold font-poppins drop-shadow-md">
-                      {project.title}
-                    </h3>
-                  </div>
+            <div
+              key={project.id}
+              className="group relative bg-zinc-900/80 border border-zinc-800/80 rounded-3xl overflow-hidden hover:border-[#C99327]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#C99327]/10 flex flex-col justify-between"
+            >
+              {/* IMAGE CONTAINER */}
+              <div className="relative h-72 overflow-hidden bg-zinc-950">
+                <img
+                  src={project.coverImage}
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <h3 className="text-base font-bold font-poppins drop-shadow-md">
+                    {project.title}
+                  </h3>
                 </div>
               </div>
-            ))}
-          </div>
-      </div>
-
-      {/* MODAL DETALLE DE EVENTO (SOLO IMAGEN / LIGHTBOX) */}
-      {selectedProject && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-black/90 backdrop-blur-xl animate-in fade-in duration-200"
-          onClick={() => setSelectedProject(null)}
-        >
-          <div 
-            className="bg-zinc-950 border border-zinc-800 rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-hidden shadow-2xl relative flex flex-col items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* CLOSE BUTTON */}
-            <button
-              onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-zinc-900/90 text-zinc-400 hover:text-white border border-zinc-800 transition-all hover:scale-110"
-              aria-label="Cerrar"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            {/* SINGLE IMAGE DISPLAY */}
-            <div className="relative w-full h-[60vh] sm:h-[75vh] bg-black flex items-center justify-center p-2">
-              <img
-                src={selectedProject.coverImage}
-                alt={selectedProject.title}
-                className="max-w-full max-h-full object-contain rounded-xl"
-              />
             </div>
-          </div>
+          ))}
         </div>
-      )}
+      </div>
 
       {/* CALL TO ACTION BOTTOM BANNER */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
@@ -145,3 +106,4 @@ export const EventsView: React.FC<EventsViewProps> = ({
     </div>
   );
 };
+
