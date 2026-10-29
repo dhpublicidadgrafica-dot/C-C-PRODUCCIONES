@@ -539,7 +539,7 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-zinc-950 font-bold text-xs uppercase tracking-wider shadow-xl shadow-amber-500/20 transition-all flex items-center gap-2"
+                    className="px-5 py-2.5 sm:px-8 sm:py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-zinc-950 font-bold text-xs uppercase tracking-wider shadow-xl shadow-amber-500/20 transition-all flex items-center gap-2"
                   >
                     {isSubmitting ? (
                       <span>Procesando Cotización...</span>
@@ -627,7 +627,7 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
                 <button
                   type="button"
                   onClick={handleSendWhatsAppQuote}
-                  className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl shadow-emerald-500/20"
+                  className="w-full sm:w-auto px-5 py-2.5 sm:px-6 sm:py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl shadow-emerald-500/20"
                 >
                   <MessageCircle className="w-4 h-4" />
                   Enviar Cotización por WhatsApp
@@ -636,7 +636,7 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
                 <button
                   type="button"
                   onClick={handlePrintQuote}
-                  className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs tracking-wider flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-5 py-2.5 sm:px-6 sm:py-3.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs tracking-wider flex items-center justify-center gap-2"
                 >
                   <Download className="w-4 h-4 text-amber-400" />
                   Descargar / Imprimir PDF

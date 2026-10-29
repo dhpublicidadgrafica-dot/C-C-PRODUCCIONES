@@ -8,13 +8,13 @@ export const SERVICES_DATA: ServiceItem[] = [
     fullDesc: 'Convertimos cada evento en una experiencia auditiva memorable. Ofrecemos alquiler y operación de equipos de sonido de alta fidelidad para todo tipo de eventos: corporativos, sociales, culturales y más. Claridad, Potencia y Confiabilidad Garantizadas.',
     iconName: 'Volume2',
     badge: 'Audio Hi-Fi High-End',
-    heroImage: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://lh3.googleusercontent.com/d/1_1Ftr1ftFlrTft2g5YRBiWdKvvaaZRWu',
     gallery: [
-      'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80'
+      'https://lh3.googleusercontent.com/d/1_1Ftr1ftFlrTft2g5YRBiWdKvvaaZRWu',
+      'https://lh3.googleusercontent.com/d/143elKTaWSUtpuMX9nq3xO_q82Zmyv7Ee',
+      'https://lh3.googleusercontent.com/d/19_0bZ1lwyzFa2oOIwhIv8HqZCvm8add9',
+      'https://lh3.googleusercontent.com/d/1W0I96gY79OoRiH39dVgAEWzP3eX5_oBU',
+      'https://lh3.googleusercontent.com/d/1TKufc_s0H_meF5X9QBIe-Y7KOkDMb8yj'
     ],
     features: [
       'Sistemas Line Array d&b audiotechnik V-Series y L-Acoustics K2',
@@ -58,13 +58,12 @@ export const SERVICES_DATA: ServiceItem[] = [
     fullDesc: 'Diseñamos y montamos pasarelas que capturan miradas y elevan tu presentación. Soluciones a medida para desfiles de moda, galas y eventos corporativos. Calidad, Seguridad y un Impacto Visual Garantizado.',
     iconName: 'Sparkles',
     badge: 'Fashion Week Quality',
-    heroImage: 'https://lh3.googleusercontent.com/d/12aFGoJPoXqqRkHj-30odI0Z-lwIZyaqv',
+    heroImage: 'https://lh3.googleusercontent.com/d/1_3YgkFa16GCl5ILKZYeICgQUHhxF0-jH',
     gallery: [
-      'https://lh3.googleusercontent.com/d/12aFGoJPoXqqRkHj-30odI0Z-lwIZyaqv',
-      'https://images.unsplash.com/photo-1469488865564-c2de10f69f96?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80'
+      'https://lh3.googleusercontent.com/d/1_3YgkFa16GCl5ILKZYeICgQUHhxF0-jH',
+      'https://lh3.googleusercontent.com/d/1UOka1xMVNdZsZQenMcQ1HkavqpfOHScJ',
+      'https://lh3.googleusercontent.com/d/1A-0PTLGQDbDRGhp7jLl2H73zv0beqsE1',
+      'https://lh3.googleusercontent.com/d/1CqZrK33_Oods84huSILRxq7_x1NrErTK'
     ],
     features: [
       'Piso en acabado charol negro espejo o acrílico blanco brillante sin uniones',
@@ -102,13 +101,12 @@ export const SERVICES_DATA: ServiceItem[] = [
     fullDesc: 'Somos tu aliado estratégico para eventos corporativos exitosos. Conferencias, reuniones, incentivos, lanzamiento de productos y más. Ofrecemos planificación estratégica, producción técnica avanzada y ejecución sin fisuras para realizar tu marca y alcanzar tus metas.',
     iconName: 'Briefcase',
     badge: 'Producción B2B Integral',
-    heroImage: 'https://lh3.googleusercontent.com/d/1ievGlw5GaYJOEaPYRxqz7F4bPybfQ-0S',
+    heroImage: 'https://lh3.googleusercontent.com/d/1BNLGHzL4mijRnnUgGwF2MlYVpGzYUPjI',
     gallery: [
-      'https://lh3.googleusercontent.com/d/1ievGlw5GaYJOEaPYRxqz7F4bPybfQ-0S',
-      'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1200&q=80'
+      'https://lh3.googleusercontent.com/d/1BNLGHzL4mijRnnUgGwF2MlYVpGzYUPjI',
+      'https://lh3.googleusercontent.com/d/1ifg8syUUgNdTd4p5jZqoKdeS_CLWuIcf',
+      'https://lh3.googleusercontent.com/d/15s6PPWIyRDDfzm8S866a0x-bZTptRNOq',
+      'https://lh3.googleusercontent.com/d/1keB4nxSBRhbtvQQW8YEaNhti2ehGLZuo'
     ],
     features: [
       'Dirección técnica y stage management en tiempo real',
@@ -152,13 +150,12 @@ export const SERVICES_DATA: ServiceItem[] = [
     fullDesc: 'Convertimos tus ideas en una realidad deslumbrante. Nos especializamos en la decoración de eventos que no solo lucen espectaculares, sino que también cuentan tu historia y crean ambientes mágicos.',
     iconName: 'Sparkles',
     badge: 'Diseño Escenográfico',
-    heroImage: 'https://lh3.googleusercontent.com/d/1jCewqnqSwVP3qDR4tFoO51y9qm8D55Di',
+    heroImage: 'https://lh3.googleusercontent.com/d/1UqddmBl5OYyiZ4-LT2xH8RaxSjbJv_Px',
     gallery: [
-      'https://lh3.googleusercontent.com/d/1jCewqnqSwVP3qDR4tFoO51y9qm8D55Di',
-      'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80'
+      'https://lh3.googleusercontent.com/d/1UqddmBl5OYyiZ4-LT2xH8RaxSjbJv_Px',
+      'https://lh3.googleusercontent.com/d/12UOR0gRt_j8eWdoQ82879JwRUcLLDI4M',
+      'https://lh3.googleusercontent.com/d/1LohV3x-QniXJ45vUYpPFyRAHc41DvVp8',
+      'https://lh3.googleusercontent.com/d/1eu2FvCzv1f-RLnWotfCCwKQydpHSiNPY'
     ],
     features: [
       'Iluminación arquitectónica perimetral Smart Wireless RGBW',
@@ -197,13 +194,12 @@ export const SERVICES_DATA: ServiceItem[] = [
     fullDesc: 'Te ofrecemos el alquiler de carpas para eventos que transforman cualquier espacio en el escenario ideal, garantizando comodidad y protección para tus invitados.',
     iconName: 'Home',
     badge: 'Estructuras Climatizadas',
-    heroImage: 'https://lh3.googleusercontent.com/d/1TBNhT79JchCIWkVy5-7cBTtw36xGVXgT',
+    heroImage: 'https://lh3.googleusercontent.com/d/1NwUYe7RtkktrusLnPv6NbFn8JKde4_qZ',
     gallery: [
-      'https://lh3.googleusercontent.com/d/1TBNhT79JchCIWkVy5-7cBTtw36xGVXgT',
-      'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1531058240690-006c446962d8?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80'
+      'https://lh3.googleusercontent.com/d/1NwUYe7RtkktrusLnPv6NbFn8JKde4_qZ',
+      'https://lh3.googleusercontent.com/d/1PahwYYExR_dn_VVMTH0xk-W8f0jdP351',
+      'https://lh3.googleusercontent.com/d/1jFtN3crkpc4vbUASqoXY4YEfud3Xjcdd',
+      'https://lh3.googleusercontent.com/d/1WC2Ou4PM9C2txYl6a3ibxqMJZlHBLq_L'
     ],
     features: [
       'Carpas tipo Estructura Alemana Patios de 10m, 15m, 20m y 30m de ancho',
@@ -242,13 +238,12 @@ export const SERVICES_DATA: ServiceItem[] = [
     fullDesc: 'Somos tu aliado experto en el alquiler de tarimas para eventos. Te ofrecemos soluciones robustas, seguras y adaptables para que tu presentación, show o celebración tenga la altura y visibilidad que merece.',
     iconName: 'Layers',
     badge: 'Módulos Certificados',
-    heroImage: 'https://lh3.googleusercontent.com/d/1W1IVnXMEfenu4w68igrWoG0wuzj-XBp9',
+    heroImage: 'https://lh3.googleusercontent.com/d/1No94nlopgHa6ovEEYneEn18ecgbMME8n',
     gallery: [
-      'https://lh3.googleusercontent.com/d/1W1IVnXMEfenu4w68igrWoG0wuzj-XBp9',
-      'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80'
+      'https://lh3.googleusercontent.com/d/1No94nlopgHa6ovEEYneEn18ecgbMME8n',
+      'https://lh3.googleusercontent.com/d/1j8pynPJrPcaggdkuf6Y4pJ0jApndVARh',
+      'https://lh3.googleusercontent.com/d/1DWO14nzddLJc-_VGSjA_UFrwI-Kbn2vI',
+      'https://lh3.googleusercontent.com/d/1ioVLLo7gY2NDDcYW2I3Exo7RwUuVAvpa'
     ],
     features: [
       'Tarimas modulares de 2x1m e 1x1m regulables desde 20cm hasta 2.50m',
@@ -287,13 +282,12 @@ export const SERVICES_DATA: ServiceItem[] = [
     fullDesc: 'Te ofrecemos el alquiler de pantallas LED para eventos que transforman cualquier espacio en un espectáculo visual. Desde conciertos y conferencias hasta bodas y activaciones de marca, nuestras pantallas garantizan mensajes claros y experiencias inolvidables.',
     iconName: 'Tv',
     badge: '4K High Brightness HDR',
-    heroImage: 'https://lh3.googleusercontent.com/d/1tCzN2HWJL05LFdD6Qyv3c2Le_XVjvor6',
+    heroImage: 'https://lh3.googleusercontent.com/d/1QbH3PYYWnyzkJcYgYNeqlm3B6UT9K7Wy',
     gallery: [
-      'https://lh3.googleusercontent.com/d/1tCzN2HWJL05LFdD6Qyv3c2Le_XVjvor6',
-      'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1469488865564-c2de10f69f96?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1508997449629-303059a039c0?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80'
+      'https://lh3.googleusercontent.com/d/1QbH3PYYWnyzkJcYgYNeqlm3B6UT9K7Wy',
+      'https://lh3.googleusercontent.com/d/1lwEsOOviQDzUWwv2pD7DkbQaog0NGLEu',
+      'https://lh3.googleusercontent.com/d/10Q5fCdKT1RuQYbteKZ7pfiBMk5Pmx0JA',
+      'https://lh3.googleusercontent.com/d/19etRgMVKYtLEqrchsggd7NHSkM9alZVE'
     ],
     features: [
       'Pixel Pitch fino Indoor P1.9 y P2.5 Ultra HD',
@@ -333,13 +327,12 @@ export const SERVICES_DATA: ServiceItem[] = [
     fullDesc: 'Somos especialistas en el alquiler de pistas de baile para eventos. Ofrecemos soluciones que no solo se ven espectaculares, sino que invitan a la diversión y garantizan la seguridad de todos, creando el ambiente perfecto para la celebración.',
     iconName: 'Disc',
     badge: 'Pistas LED & Vinilo',
-    heroImage: 'https://lh3.googleusercontent.com/d/11xNFRJMrMofdyAoZ8If06obvDCbt82U4',
+    heroImage: 'https://lh3.googleusercontent.com/d/15tbF-ukF8igIp2V1cLQN_W9qn3MIJGy0',
     gallery: [
-      'https://lh3.googleusercontent.com/d/11xNFRJMrMofdyAoZ8If06obvDCbt82U4',
-      'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1200&q=80'
+      'https://lh3.googleusercontent.com/d/15tbF-ukF8igIp2V1cLQN_W9qn3MIJGy0',
+      'https://lh3.googleusercontent.com/d/1FbvNNw7No39Fysjtltnbie8xXWfyrfh7',
+      'https://lh3.googleusercontent.com/d/1MiHYB99ypgxjbaPlp9vgg6_N4UcZcr_h',
+      'https://lh3.googleusercontent.com/d/11DD1mW-Mvg_3Rer36QFDGuZ_wAJiKPGU'
     ],
     features: [
       'Pistas de baile LED interactivas con sensores de presión y patrones RGB',
@@ -376,13 +369,11 @@ export const SERVICES_DATA: ServiceItem[] = [
     fullDesc: 'Somos especialistas en el montaje de escenarios para eventos. Desde conciertos masivos hasta elegantes pasarelas y conferencias inspiradoras, diseñamos y construimos la plataforma perfecta para que tu mensaje y tus artistas brillen con la máxima seguridad y profesionalidad.',
     iconName: 'Maximize2',
     badge: 'Ingeniería & Renders 3D',
-    heroImage: 'https://lh3.googleusercontent.com/d/1qU45C7aAb5vIiBt9n7SSBsiw-01mJp5i',
+    heroImage: 'https://lh3.googleusercontent.com/d/1dRG853WLYYHSFsxuMG5DYj9Mq8ebBa62',
     gallery: [
-      'https://lh3.googleusercontent.com/d/1qU45C7aAb5vIiBt9n7SSBsiw-01mJp5i',
-      'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1508997449629-303059a039c0?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80'
+      'https://lh3.googleusercontent.com/d/1dRG853WLYYHSFsxuMG5DYj9Mq8ebBa62',
+      'https://lh3.googleusercontent.com/d/1sLSX0OH3h-3lqOrcU1gEr-pTADKvNqjd',
+      'https://lh3.googleusercontent.com/d/1ZLwt3ai5unDfRw_kuzOdilQpDtRLJstg'
     ],
     features: [
       'Renderizado 3D escenográfico hiperrealista con simulación de luces DMX',

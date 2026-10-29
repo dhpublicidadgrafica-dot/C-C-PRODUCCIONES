@@ -2,7 +2,6 @@ import React from 'react';
 import { Hero } from '../components/Hero';
 import { PortfolioGallery } from '../components/PortfolioGallery';
 import { WhyChooseUs } from '../components/WhyChooseUs';
-import { ClientsTicker } from '../components/ClientsTicker';
 import { ServiceId } from '../types';
 import { Sparkles, Calculator } from 'lucide-react';
 
@@ -33,10 +32,8 @@ export const HomePage: React.FC<HomePageProps> = ({
         onOpenQuoteModal={() => onOpenQuoteModal()}
         onViewEvents={() => onSelectService('eventos-corporativos')}
         onSelectService={onSelectService}
+        onNavigateTab={onNavigateTab}
       />
-
-      {/* CLIENTS TICKER */}
-      <ClientsTicker />
 
       {/* WHY CHOOSE US */}
       <WhyChooseUs />
@@ -59,7 +56,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <button
               onClick={() => onOpenQuoteModal()}
-              className="px-8 py-4 rounded-full bg-zinc-950 text-white font-bold text-sm uppercase tracking-wider hover:bg-zinc-800 transition-all shadow-2xl flex items-center gap-2 cursor-pointer"
+              className="px-8 py-3.5 rounded-full bg-zinc-950 text-white font-bold text-xs uppercase tracking-wider hover:bg-zinc-800 transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
             >
               <Calculator className="w-4 h-4 text-[#C99327]" />
               <span>Solicitar Cotización Gratis</span>

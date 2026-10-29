@@ -85,17 +85,16 @@ export const Hero: React.FC<HeroProps> = ({
         </p>
 
         {/* CALL TO ACTION BUTTONS */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
           
           <button
             onClick={onOpenQuoteModal}
-            className="w-full sm:w-auto bg-white text-black px-10 py-4 font-bold rounded-full hover:bg-[#C99327] hover:text-black transition-all flex items-center justify-center gap-2 shadow-2xl shadow-[#C99327]/10 group cursor-pointer"
+            className="px-8 py-3.5 rounded-full bg-white text-black font-bold text-xs uppercase tracking-wider hover:bg-[#C99327] hover:text-black transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#C99327]/20 group cursor-pointer"
             id="hero-cotizar-btn"
           >
             <span>Cotizar Ahora</span>
             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
-
 
         </div>
 

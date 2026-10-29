@@ -9,14 +9,14 @@ export const WhatsAppFloatingButton: React.FC = () => {
   return (
     <button
       onClick={handleClick}
-      className="fixed bottom-6 right-6 z-40 p-0 rounded-full bg-transparent transition-transform hover:scale-110 flex items-center justify-center cursor-pointer drop-shadow-lg"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 p-0 rounded-full bg-transparent transition-transform hover:scale-110 flex items-center justify-center cursor-pointer drop-shadow-lg"
       title="Atención Directa por WhatsApp"
       id="floating-whatsapp-btn"
     >
       <img 
         src="https://lh3.googleusercontent.com/d/1JKMPRq27BdYOATgMiPePz-9GJDkjyOFw" 
         alt="WhatsApp" 
-        className="w-14 h-14 object-contain"
+        className="w-11 h-11 sm:w-14 sm:h-14 object-contain"
         referrerPolicy="no-referrer"
       />
     </button>

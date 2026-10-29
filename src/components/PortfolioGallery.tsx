@@ -10,12 +10,14 @@ interface PortfolioGalleryProps {
   onOpenQuoteModal: () => void;
   onViewEvents?: () => void;
   onSelectService?: (id: ServiceId) => void;
+  onNavigateTab?: (tab: string) => void;
 }
 
 export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({ 
   onOpenQuoteModal, 
   onViewEvents,
-  onSelectService 
+  onSelectService,
+  onNavigateTab 
 }) => {
   const [activeFilter, setActiveFilter] = useState<EventCategory>('todos');
 
@@ -38,12 +40,11 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
     }
   };
 
-  const handleProjectClick = (targetServiceId?: ServiceId) => {
-    const targetId = targetServiceId || 'escenarios';
-    if (onSelectService) {
-      onSelectService(targetId);
-    } else if (onViewEvents) {
-      onViewEvents();
+  const handleGoToServices = () => {
+    if (onNavigateTab) {
+      onNavigateTab('servicios');
+    } else {
+      window.location.href = '/servicios';
     }
   };
 
@@ -71,47 +72,45 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
 
         {/* MASONRY / PINTEREST-STYLE GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => {
-            const targetId = project.targetServiceId || 'escenarios';
-            return (
-              <div
-                key={project.id}
-                onClick={() => handleProjectClick(project.targetServiceId)}
-                className="group relative bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden cursor-pointer hover:border-amber-500/40 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between"
-              >
-                {/* IMAGE COVER */}
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={project.coverImage}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
+          {filteredProjects.map((project) => (
+            <div
+              key={project.id}
+              onClick={() => handleGoToServices()}
+              className="group relative bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden cursor-pointer hover:border-amber-500/40 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between"
+            >
+              {/* IMAGE COVER */}
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src={project.coverImage}
+                  alt={project.title}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
 
-                  <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-zinc-950/80 backdrop-blur-md text-amber-400 text-[10px] font-poppins font-bold uppercase border border-amber-400/30">
-                    {getCategoryBadge(project.category)}
-                  </span>
-                </div>
-
-                {/* CARD DETAILS */}
-                <div className="p-4 flex items-center justify-end">
-                  <a
-                    href={`/servicios/${targetId}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      handleProjectClick(project.targetServiceId);
-                    }}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 text-amber-400 hover:text-amber-300 text-xs font-semibold transition-all group-hover:border-amber-400/60"
-                  >
-                    <span>Ver Más..</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-
+                <span className="absolute top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-zinc-950/80 backdrop-blur-md text-amber-400 text-[10px] font-poppins font-bold uppercase border border-amber-400/30 whitespace-nowrap text-center">
+                  {getCategoryBadge(project.category)}
+                </span>
               </div>
-            );
-          })}
+
+              {/* CARD DETAILS */}
+              <div className="p-4 flex items-center justify-center">
+                <a
+                  href="/servicios"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleGoToServices();
+                  }}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 text-amber-400 hover:text-amber-300 text-xs font-semibold transition-all group-hover:border-amber-400/60"
+                >
+                  <span>Ver Más..</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+
+            </div>
+          ))}
         </div>
 
       </div>

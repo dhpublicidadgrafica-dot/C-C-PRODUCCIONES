@@ -3,7 +3,6 @@ import { Navbar } from './components/Navbar';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ServicesPage } from './pages/ServicesPage';
-import { EventsPage } from './pages/EventsPage';
 import { BlogPage } from './pages/BlogPage';
 import { ContactPage } from './pages/ContactPage';
 import { ServiceDetailPage } from './pages/ServiceDetailPage';
@@ -55,7 +54,7 @@ function parsePathname(pathname: string): RouteState {
   }
 
   if (cleanPath === '/eventos' || cleanPath === '/portafolio' || cleanPath === '/galeria') {
-    return { tab: 'eventos', serviceId: null, path: '/eventos' };
+    return { tab: 'servicios', serviceId: null, path: '/servicios' };
   }
 
   if (cleanPath === '/blog' || cleanPath === '/noticias' || cleanPath === '/guias') {
@@ -79,7 +78,6 @@ function getUrlForTab(tab: string, serviceId?: ServiceId | null): string {
     const id = tab.replace('servicio-', '');
     return `/servicios/${id}`;
   }
-  if (tab === 'eventos') return '/eventos';
   if (tab === 'blog') return '/blog';
   if (tab === 'contacto') return '/contacto';
   return '/';
@@ -187,10 +185,6 @@ export function App() {
           title = 'Servicios de Producción | C&C Producciones - Eventos Inolvidables';
           description = 'Alquiler de pantallas LED, sonido profesional Line Array, tarimas, carpas e iluminación para eventos inolvidables.';
           break;
-        case 'eventos':
-          title = 'Eventos y Portafolio | C&C Producciones - Eventos Inolvidables';
-          description = 'Explora nuestra galería de eventos corporativos, conciertos y montajes inolvidables producidos por C&C Producciones.';
-          break;
         case 'blog':
           title = 'Blog Técnico de Producción | C&C Producciones - Eventos Inolvidables';
           description = 'Guías, consejos y mejores prácticas sobre sonorización, pantallas LED y producción técnica para eventos inolvidables.';
@@ -293,13 +287,6 @@ export function App() {
             onSelectService={handleSelectService}
             onOpenQuoteModal={handleOpenQuoteWithService}
             onNavigateTab={handleTabChange}
-          />
-        );
-      case 'eventos':
-        return (
-          <EventsPage
-            onNavigateTab={handleTabChange}
-            onOpenQuoteModal={() => handleOpenQuoteWithService()}
           />
         );
       case 'blog':

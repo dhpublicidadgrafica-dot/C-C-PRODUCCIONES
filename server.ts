@@ -123,18 +123,47 @@ Inspiración y tono:
   }
 });
 
-// Smart Lead Submission Endpoint
-app.post('/api/contact', (req, res) => {
+// Smart Lead Submission Endpoint - Direct Email to cycproducciones2015@gmail.com
+app.post('/api/contact', async (req, res) => {
   const { name, company, city, email, phone, eventType, eventDate, guestsCount, budget, message } = req.body;
 
-  // Lead registration simulation
   const leadId = `CYC-${Date.now().toString().slice(-6)}`;
-  console.log(`[CyC Lead Received]: ${leadId} from ${name} (${company || 'Personal'}) - ${eventType}`);
+  console.log(`[CyC Lead Received]: ${leadId} from ${name} - ${eventType} -> Sending to cycproducciones2015@gmail.com`);
+
+  try {
+    // Deliver email directly to cycproducciones2015@gmail.com via FormSubmit
+    await fetch('https://formsubmit.co/ajax/cycproducciones2015@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        _subject: `🔔 Nueva Solicitud de Evento [${leadId}] - ${name || 'Cliente'}`,
+        _template: 'table',
+        _captcha: 'false',
+        'Radicado': leadId,
+        'Nombre del Cliente': name || 'No especificado',
+        'Empresa': company || 'No especificada',
+        'Ciudad': city || 'Medellín / Colombia',
+        'Correo de Contacto': email || 'No especificado',
+        'Teléfono / WhatsApp': phone || 'No especificado',
+        'Tipo de Evento': eventType || 'No especificado',
+        'Fecha Estimada': eventDate || 'Por definir',
+        'Cantidad de Asistentes': guestsCount ? `${guestsCount} personas` : 'No especificado',
+        'Presupuesto Estimado': budget || 'Por cotizar',
+        'Detalles y Requerimientos': message || 'Sin comentarios adicionales',
+      }),
+    });
+  } catch (err) {
+    console.error('Error forwarding lead email:', err);
+  }
 
   res.json({
     success: true,
     leadId,
-    message: `¡Gracias ${name}! Tu solicitud #${leadId} ha sido recibida con éxito. Un productor ejecutivo de CyC Producciones te contactará en menos de 15 minutos.`,
+    targetEmail: 'cycproducciones2015@gmail.com',
+    message: `¡Gracias ${name}! Tu solicitud #${leadId} ha sido enviada directamente a cycproducciones2015@gmail.com. Un asesor técnico de CyC Producciones se comunicará contigo a la brevedad.`,
     summary: {
       client: name,
       eventType,
@@ -181,6 +210,9 @@ app.get('/api/seo-sitemap', (req, res) => {
     urls,
   });
 });
+
+// Static files from public
+app.use(express.static(path.join(process.cwd(), 'public')));
 
 // Vite server setup
 async function startServer() {

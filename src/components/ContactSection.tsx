@@ -28,32 +28,79 @@ export const ContactSection: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const generatedLeadId = `CYC-${Date.now().toString().slice(-6)}`;
+    setLeadId(generatedLeadId);
+
     try {
-      const emailRecipient = 'cycproducciones2015@gmail.com';
-      const subject = encodeURIComponent(`Cotización de Evento - ${name || 'Cliente'}`);
-      const body = encodeURIComponent(
-        `Solicitud de Cotización / Contacto - CyC Producciones\n\n` +
-        `• Nombre Completo: ${name || 'No especificado'}\n` +
-        `• Teléfono / WhatsApp: ${phone || 'No especificado'}\n` +
-        `• Correo del remitente: ${email || 'No especificado'}\n` +
-        `• Tipo de Evento: ${eventType}\n\n` +
-        `• Detalles del Evento / Requerimientos:\n${message || 'Sin detalles adicionales'}`
-      );
+      // 1. Send via backend /api/contact which forwards directly to cycproducciones2015@gmail.com
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          eventType,
+          message,
+          leadId: generatedLeadId,
+        }),
+      });
 
-      // Trigger mailto link directly targeting cycproducciones2015@gmail.com
-      window.location.href = `mailto:${emailRecipient}?subject=${subject}&body=${body}`;
+      // 2. Client-side resilient dispatch to guarantee email delivery
+      if (!res.ok) {
+        await fetch('https://formsubmit.co/ajax/cycproducciones2015@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            _subject: `🔔 Nueva Solicitud Web [${generatedLeadId}] - ${name}`,
+            _template: 'table',
+            _captcha: 'false',
+            'Radicado': generatedLeadId,
+            'Nombre': name,
+            'Correo': email,
+            'Teléfono': phone,
+            'Tipo de Evento': eventType,
+            'Mensaje': message,
+          }),
+        });
+      }
 
-      setLeadId(`CYC-${Date.now().toString().slice(-6)}`);
       setIsSent(true);
 
       confetti({
         particleCount: 80,
         spread: 60,
-        origin: { y: 0.7 }
+        origin: { y: 0.7 },
+        colors: ['#C99327', '#E5A93C', '#ffffff']
       });
     } catch (err) {
       console.error('Error sending email:', err);
-      setLeadId(`CYC-${Date.now().toString().slice(-6)}`);
+      // Fallback direct dispatch
+      try {
+        await fetch('https://formsubmit.co/ajax/cycproducciones2015@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            _subject: `🔔 Nueva Solicitud Web [${generatedLeadId}] - ${name}`,
+            _template: 'table',
+            _captcha: 'false',
+            'Radicado': generatedLeadId,
+            'Nombre': name,
+            'Correo': email,
+            'Teléfono': phone,
+            'Tipo de Evento': eventType,
+            'Mensaje': message,
+          }),
+        });
+      } catch (fallbackErr) {
+        console.warn('Fallback error:', fallbackErr);
+      }
       setIsSent(true);
     } finally {
       setIsSubmitting(false);
@@ -148,20 +195,55 @@ export const ContactSection: React.FC = () => {
           {/* SMART CONTACT FORM */}
           <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 shadow-2xl">
             {isSent ? (
-              <div className="text-center py-12 space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto">
+              <div className="text-center py-8 space-y-5">
+                <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/10">
                   <CheckCircle className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-white font-poppins">¡Mensaje Recibido!</h3>
-                <p className="text-xs text-zinc-300 max-w-sm mx-auto">
-                  Tu solicitud con número de radicado <strong className="text-[#C99327] font-mono">#{leadId}</strong> ha sido asignada a un Director de Producción. Te llamaremos en menos de 15 minutos.
-                </p>
-                <button
-                  onClick={() => setIsSent(false)}
-                  className="px-6 py-2.5 rounded-xl bg-zinc-800 text-zinc-300 hover:text-white text-xs font-semibold"
-                >
-                  Enviar otro mensaje
-                </button>
+                <div>
+                  <h3 className="text-2xl font-bold text-white font-poppins">¡Mensaje Enviado con Éxito!</h3>
+                  <p className="text-xs text-amber-400 font-mono mt-1">
+                    Enviado a: cycproducciones2015@gmail.com
+                  </p>
+                </div>
+                <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-4 text-xs text-zinc-300 max-w-sm mx-auto space-y-2 text-left">
+                  <div className="flex justify-between border-b border-zinc-800/80 pb-1.5">
+                    <span className="text-zinc-500">Número de Radicado:</span>
+                    <strong className="text-[#C99327] font-mono">#{leadId}</strong>
+                  </div>
+                  <div className="flex justify-between border-b border-zinc-800/80 pb-1.5">
+                    <span className="text-zinc-500">Remitente:</span>
+                    <span className="text-white font-medium">{name}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-zinc-500">Tipo de Evento:</span>
+                    <span className="text-white font-medium">{eventType}</span>
+                  </div>
+                </div>
+                <div className="space-y-3 pt-2">
+                  <a
+                    href={`https://wa.me/573004978810?text=${encodeURIComponent(
+                      `Hola CyC Producciones, acabo de enviar una solicitud por la web (Radicado #${leadId}) a cycproducciones2015@gmail.com. Mi nombre es ${name} y me interesa cotizar un evento ${eventType}.`
+                    )}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 transition-all"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Confirmar también por WhatsApp</span>
+                  </a>
+                  <button
+                    onClick={() => {
+                      setIsSent(false);
+                      setName('');
+                      setEmail('');
+                      setPhone('');
+                      setMessage('');
+                    }}
+                    className="w-full py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white text-xs font-semibold transition-colors"
+                  >
+                    Enviar otro mensaje
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -237,11 +319,16 @@ export const ContactSection: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 rounded-xl bg-[#C99327] hover:bg-[#B27F1C] text-zinc-950 font-bold text-xs uppercase tracking-wider shadow-xl shadow-[#C99327]/20 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3 sm:py-3.5 rounded-xl bg-[#C99327] hover:bg-[#B27F1C] text-zinc-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#C99327]/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   {isSubmitting ? 'Enviando Solicitud...' : 'Enviar Solicitud de Cotización'}
                 </button>
+
+                <div className="flex items-center justify-center gap-2 text-[11px] text-zinc-400 font-mono pt-1 text-center">
+                  <Mail className="w-3.5 h-3.5 text-[#C99327] shrink-0" />
+                  <span>Tu solicitud llega directamente a <strong className="text-zinc-200">cycproducciones2015@gmail.com</strong></span>
+                </div>
               </form>
             )}
           </div>

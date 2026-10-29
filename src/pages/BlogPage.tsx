@@ -48,7 +48,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
           <div className="mt-8">
             <button
               onClick={onOpenQuoteModal}
-              className="px-6 py-3 rounded-full bg-[#C99327] text-zinc-950 font-bold text-xs uppercase tracking-wider hover:bg-[#B27F1C] transition-all shadow-lg shadow-[#C99327]/20 flex items-center gap-2"
+              className="px-8 py-3.5 rounded-full bg-[#C99327] text-zinc-950 font-bold text-xs uppercase tracking-wider hover:bg-[#B27F1C] transition-all flex items-center gap-2 shadow-lg shadow-[#C99327]/20"
             >
               <Calculator className="w-4 h-4" />
               <span>Cotizar Equipamiento</span>

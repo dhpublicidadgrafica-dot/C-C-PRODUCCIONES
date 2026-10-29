@@ -10,11 +10,11 @@ export const PORTFOLIO_DATA: PortfolioProject[] = [
     location: 'Centro de Convenciones Ágora',
     year: '2025',
     attendees: '2,800 Asistentes',
-    coverImage: 'https://lh3.googleusercontent.com/d/1ievGlw5GaYJOEaPYRxqz7F4bPybfQ-0S',
+    coverImage: 'https://lh3.googleusercontent.com/d/1BNLGHzL4mijRnnUgGwF2MlYVpGzYUPjI',
     images: [
-      'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80'
+      'https://lh3.googleusercontent.com/d/1ifg8syUUgNdTd4p5jZqoKdeS_CLWuIcf',
+      'https://lh3.googleusercontent.com/d/15s6PPWIyRDDfzm8S866a0x-bZTptRNOq',
+      'https://lh3.googleusercontent.com/d/1keB4nxSBRhbtvQQW8YEaNhti2ehGLZuo'
     ],
     summary: 'Montaje escenográfico y audiovisual integral para la cumbre tecnológica más relevante de la región. Instalación de 120m² de Pantalla LED P2.5 4K, sistema de sonido d&b V-Series, traducción simultánea en 3 idiomas y streaming satelital 4K.',
     technicalHighlights: [
@@ -38,7 +38,7 @@ export const PORTFOLIO_DATA: PortfolioProject[] = [
     location: 'Estadio El Campín / Parque Simon Bolívar',
     year: '2025',
     attendees: '35,000 Personas',
-    coverImage: 'https://lh3.googleusercontent.com/d/1qU45C7aAb5vIiBt9n7SSBsiw-01mJp5i',
+    coverImage: 'https://lh3.googleusercontent.com/d/1dRG853WLYYHSFsxuMG5DYj9Mq8ebBa62',
     images: [
       'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80',
@@ -66,7 +66,7 @@ export const PORTFOLIO_DATA: PortfolioProject[] = [
     location: 'Hacienda San José de las Palmas',
     year: '2025',
     attendees: '450 Invitados',
-    coverImage: 'https://lh3.googleusercontent.com/d/15SFgCj5BDUeB5yFDkjqEmYAgJUwYrRL4',
+    coverImage: 'https://lh3.googleusercontent.com/d/1UqddmBl5OYyiZ4-LT2xH8RaxSjbJv_Px',
     images: [
       'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80'
@@ -115,9 +115,11 @@ export const PORTFOLIO_DATA: PortfolioProject[] = [
     location: 'Hotel Grand Hyatt Ballroom',
     year: '2025',
     attendees: '1,500 Espectadores',
-    coverImage: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://lh3.googleusercontent.com/d/1_3YgkFa16GCl5ILKZYeICgQUHhxF0-jH',
     images: [
-      'https://images.unsplash.com/photo-1469488865564-c2de10f69f96?auto=format&fit=crop&w=1200&q=80'
+      'https://lh3.googleusercontent.com/d/1UOka1xMVNdZsZQenMcQ1HkavqpfOHScJ',
+      'https://lh3.googleusercontent.com/d/1A-0PTLGQDbDRGhp7jLl2H73zv0beqsE1',
+      'https://lh3.googleusercontent.com/d/1CqZrK33_Oods84huSILRxq7_x1NrErTK'
     ],
     summary: 'Pasarela en T con superficie de charol negro espejo de 35 metros de longitud, iluminación de pasarela libre de sombras con índice CRI 98 y camerinos equipados para 40 modelos.',
     technicalHighlights: [

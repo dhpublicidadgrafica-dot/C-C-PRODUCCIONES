@@ -131,18 +131,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             </a>
 
             <a
-              href="/eventos"
-              onClick={(e) => handleNavClick('/eventos', e)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
-                activeTab === 'eventos' || currentPath === '/eventos'
-                  ? 'bg-amber-400 text-zinc-950 shadow-md shadow-amber-400/20 font-bold'
-                  : 'text-zinc-300 hover:text-white hover:bg-zinc-800/60'
-              }`}
-            >
-              Eventos
-            </a>
-
-            <a
               href="/contacto"
               onClick={(e) => handleNavClick('/contacto', e)}
               className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
@@ -212,16 +200,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             </a>
 
             <a
-              href="/eventos"
-              onClick={(e) => handleNavClick('/eventos', e)}
-              className={`p-2.5 rounded-xl text-xs font-semibold text-left transition-colors block ${
-                activeTab === 'eventos' || currentPath === '/eventos' ? 'bg-amber-400 text-zinc-950 font-bold' : 'bg-zinc-900 text-zinc-300'
-              }`}
-            >
-              Eventos
-            </a>
-
-            <a
               href="/contacto"
               onClick={(e) => handleNavClick('/contacto', e)}
               className={`p-2.5 rounded-xl text-xs font-semibold text-left transition-colors block ${
@@ -238,7 +216,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onOpenQuoteModal();
               }}
-              className="w-full py-3 rounded-xl bg-amber-400 text-zinc-950 font-bold text-xs uppercase tracking-wider"
+              className="w-full py-2.5 rounded-xl bg-amber-400 text-zinc-950 font-bold text-xs uppercase tracking-wider"
             >
               Solicitar Cotización
             </button>

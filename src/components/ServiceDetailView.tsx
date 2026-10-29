@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, 
   Calculator, 
-  CheckCircle2, 
-  Sparkles, 
   ShieldCheck, 
-  ChevronDown, 
-  HelpCircle,
   ChevronLeft,
   ChevronRight,
   Maximize,
@@ -25,16 +21,14 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
   onBackToServices,
   onOpenQuoteForService
 }) => {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-
   // Carousel state
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState<boolean>(false);
 
-  // Ensure 5 images in gallery
+  // Images in gallery (e.g. 4 for Pasarelas, 5 for Sonido)
   const galleryImages = service.gallery && service.gallery.length > 0 
-    ? service.gallery.slice(0, 5) 
-    : [service.heroImage, service.heroImage, service.heroImage, service.heroImage, service.heroImage];
+    ? service.gallery 
+    : [service.heroImage];
 
   // Auto-play carousel slider
   useEffect(() => {
@@ -79,16 +73,13 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
             <img 
               src={service.heroImage} 
               alt={service.seoTitle} 
+              referrerPolicy="no-referrer"
               className="w-full h-full object-cover filter brightness-50 contrast-125"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/85 to-transparent" />
           </div>
 
           <div className="relative z-10 max-w-2xl space-y-6">
-            <span className="inline-block px-3.5 py-1 rounded-full bg-amber-400 text-zinc-950 text-xs font-mono font-bold uppercase tracking-wider shadow-lg">
-              {service.badge}
-            </span>
-
             <h1 className="text-3xl sm:text-5xl font-bold text-white font-poppins tracking-tight leading-tight uppercase">
               {service.name}
             </h1>
@@ -100,10 +91,10 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <button
                 onClick={onOpenQuoteForService}
-                className="px-8 py-4 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-zinc-950 font-bold text-xs uppercase tracking-wider shadow-xl shadow-amber-500/25 transition-all hover:scale-105 flex items-center gap-2 cursor-pointer"
+                className="px-8 py-3.5 rounded-full bg-[#C99327] hover:bg-[#B27F1C] text-zinc-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#C99327]/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Calculator className="w-4 h-4" />
-                Cotizar {service.name}
+                <span>Cotizar Ahora</span>
               </button>
 
               <div className="text-xs text-zinc-400 font-mono flex items-center gap-2">
@@ -125,6 +116,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
             <img 
               src={galleryImages[currentSlideIndex]} 
               alt={`${service.name} Imagen ${currentSlideIndex + 1}`}
+              referrerPolicy="no-referrer"
               className="w-full h-full object-cover transition-all duration-700 filter brightness-95 group-hover:scale-105"
             />
             
@@ -159,8 +151,16 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
             </button>
           </div>
 
-          {/* 5 THUMBNAILS SELECTOR BAR */}
-          <div className="grid grid-cols-5 gap-2 sm:gap-4 pt-2">
+          {/* THUMBNAILS SELECTOR BAR */}
+          <div className={`grid gap-2 sm:gap-4 pt-2 ${
+            galleryImages.length === 4 
+              ? 'grid-cols-4' 
+              : galleryImages.length === 3 
+                ? 'grid-cols-3' 
+                : galleryImages.length === 6 
+                  ? 'grid-cols-6' 
+                  : 'grid-cols-5'
+          }`}>
             {galleryImages.map((img, idx) => {
               const isActive = currentSlideIndex === idx;
               return (
@@ -176,6 +176,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                   <img 
                     src={img} 
                     alt={`Miniatura ${idx + 1}`}
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
                   />
                   <span className={`absolute top-1 left-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-bold ${
@@ -212,6 +213,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
             <img 
               src={galleryImages[currentSlideIndex]} 
               alt="Vista ampliada" 
+              referrerPolicy="no-referrer"
               className="max-w-full max-h-[80vh] object-contain mx-auto rounded-2xl shadow-2xl border border-zinc-800"
             />
             <div className="text-center mt-4 text-xs font-mono text-zinc-400">
@@ -228,29 +230,27 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
         </div>
       )}
 
-      {/* SERVICE FEATURES & BENEFITS */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <div className="space-y-6">
-          <div className="inline-flex items-center gap-2 text-amber-400 text-xs font-mono uppercase tracking-wider">
-            <Sparkles className="w-4 h-4" />
-            <span>Ventajas Competitivas</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-bold text-white font-poppins">
-            Por qué contratar nuestro servicio de {service.name}
-          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {service.features.map((feat, idx) => (
-              <div key={idx} className="flex items-start gap-3 p-4 rounded-2xl bg-zinc-900 border border-zinc-800">
-                <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm text-zinc-200 font-medium">{feat}</span>
-              </div>
-            ))}
+      {/* BOTTOM CTA */}
+      <section className="py-16 bg-zinc-900 border-t border-zinc-800 text-center">
+        <div className="max-w-4xl mx-auto px-4 space-y-6">
+          <h2 className="text-2xl sm:text-4xl font-bold font-poppins text-white">
+            ¿Listo para cotizar {service.name} para tu evento?
+          </h2>
+          <p className="text-zinc-400 text-sm sm:text-base">
+            Asesoría técnica y presupuesto personalizado con nuestros ingenieros de producción.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <button
+              onClick={onOpenQuoteForService}
+              className="px-8 py-3.5 rounded-full bg-[#C99327] text-zinc-950 font-bold text-xs uppercase tracking-wider hover:bg-[#B27F1C] transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#C99327]/20 cursor-pointer"
+            >
+              <Calculator className="w-4 h-4" />
+              <span>Cotizar Ahora</span>
+            </button>
           </div>
         </div>
       </section>
-
-
 
     </article>
   );
