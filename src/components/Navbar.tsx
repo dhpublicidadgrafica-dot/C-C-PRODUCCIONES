@@ -76,7 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             id="cyc-logo-button"
           >
             <img 
-              src="https://lh3.googleusercontent.com/d/1vf9b6qcs3ngizbDkAvu3_Nq2PL23P3k1" 
+              src="https://lh3.googleusercontent.com/d/1KpGQldeWjjDCjG-GXfMxrlB1QO3kHW5i" 
               alt="C&C Producciones Logo" 
               className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
               referrerPolicy="no-referrer"

@@ -26,7 +26,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <img 
-                src="https://lh3.googleusercontent.com/d/1vf9b6qcs3ngizbDkAvu3_Nq2PL23P3k1" 
+                src="https://lh3.googleusercontent.com/d/1KpGQldeWjjDCjG-GXfMxrlB1QO3kHW5i" 
                 alt="C&C Producciones Logo" 
                 className="h-10 w-auto object-contain"
                 referrerPolicy="no-referrer"

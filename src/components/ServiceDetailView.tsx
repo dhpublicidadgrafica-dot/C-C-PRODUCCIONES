@@ -235,7 +235,19 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       <section className="py-16 bg-zinc-900 border-t border-zinc-800 text-center">
         <div className="max-w-4xl mx-auto px-4 space-y-6">
           <h2 className="text-2xl sm:text-4xl font-bold font-poppins text-white">
-            ¿Listo para cotizar {service.name} para tu evento?
+            {service.id === 'sonido-profesional'
+              ? '¿Listo para cotizar el SONIDO PROFESIONAL de tu evento?'
+              : service.id === 'eventos-corporativos'
+                ? '¿Listo para cotizar tu EVENTO CORPORATIVO?'
+                : service.id === 'decoracion-eventos'
+                  ? '¿Listo para cotizar la DECORACIÓN DE TU EVENTO?'
+                  : service.id === 'pistas-de-baile'
+                    ? '¿Listo para cotizar la PISTA DE BAILE de tu evento?'
+                    : service.id === 'escenarios'
+                      ? '¿Listo para cotizar el ESCENARIO DE TU EVENTO?'
+                      : ['pasarelas', 'tarimas', 'carpas', 'pantallas-led'].includes(service.id)
+                        ? `¿Listo para cotizar las ${service.name} de tu evento?`
+                        : `¿Listo para cotizar la ${service.name} de tu evento?`}
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base">
             Asesoría técnica y presupuesto personalizado con nuestros ingenieros de producción.
