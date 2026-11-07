@@ -27,6 +27,12 @@ export const Footer: React.FC<FooterProps> = ({
             <div className="flex items-center gap-3">
               <img 
                 src="https://lh3.googleusercontent.com/d/1KpGQldeWjjDCjG-GXfMxrlB1QO3kHW5i" 
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.src.includes('/images/logo-cyc.png')) {
+                    target.src = '/images/logo-cyc.png';
+                  }
+                }}
                 alt="C&C Producciones Logo" 
                 className="h-10 w-auto object-contain"
                 referrerPolicy="no-referrer"

@@ -78,6 +78,7 @@ export const SEOInspectorDrawer: React.FC<SEOInspectorDrawerProps> = ({
             <img 
               src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80" 
               alt="OG Preview" 
+              referrerPolicy="no-referrer"
               className="w-full h-32 object-cover"
             />
             <div className="p-3 space-y-1">

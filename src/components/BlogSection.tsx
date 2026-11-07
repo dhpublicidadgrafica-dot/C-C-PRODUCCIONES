@@ -35,6 +35,7 @@ export const BlogSection: React.FC = () => {
                 <img 
                   src={post.coverImage} 
                   alt={post.title} 
+                  referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-90"
                 />
                 <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-zinc-950/80 backdrop-blur-md text-amber-400 text-[10px] font-mono font-bold uppercase border border-amber-400/30">
@@ -91,6 +92,7 @@ export const BlogSection: React.FC = () => {
               <img 
                 src={selectedPost.coverImage} 
                 alt={selectedPost.title} 
+                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover filter brightness-75"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/60 to-transparent" />
