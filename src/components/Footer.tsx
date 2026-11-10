@@ -2,6 +2,7 @@ import React from 'react';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { ServiceId } from '../types';
 import { SERVICES_DATA } from '../data/servicesData';
+import { LOGO_BASE64 } from '../assets/logoBase64';
 
 interface FooterProps {
   onSelectService: (id: ServiceId) => void;
@@ -26,16 +27,9 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <img 
-                src="https://lh3.googleusercontent.com/d/1KpGQldeWjjDCjG-GXfMxrlB1QO3kHW5i" 
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  if (!target.src.includes('/images/logo-cyc.png')) {
-                    target.src = '/images/logo-cyc.png';
-                  }
-                }}
+                src={LOGO_BASE64} 
                 alt="C&C Producciones Logo" 
                 className="h-10 w-auto object-contain"
-                referrerPolicy="no-referrer"
               />
               <div className="flex flex-col">
                 <span className="text-lg font-bold tracking-tighter text-white font-poppins uppercase leading-none">

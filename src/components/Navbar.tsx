@@ -17,6 +17,7 @@ import {
   Maximize2
 } from 'lucide-react';
 import { ServiceId } from '../types';
+import { LOGO_BASE64 } from '../assets/logoBase64';
 
 interface NavbarProps {
   activeTab: string;
@@ -76,16 +77,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             id="cyc-logo-button"
           >
             <img 
-              src="https://lh3.googleusercontent.com/d/1KpGQldeWjjDCjG-GXfMxrlB1QO3kHW5i" 
-              onError={(e) => {
-                const target = e.currentTarget;
-                if (!target.src.includes('/images/logo-cyc.png')) {
-                  target.src = '/images/logo-cyc.png';
-                }
-              }}
+              src={LOGO_BASE64}
               alt="C&C Producciones Logo" 
               className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
-              referrerPolicy="no-referrer"
             />
             <div>
               <span className="text-xl font-bold tracking-tighter text-white flex items-center gap-1.5 font-poppins uppercase">
