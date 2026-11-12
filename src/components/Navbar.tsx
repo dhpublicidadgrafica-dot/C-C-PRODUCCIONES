@@ -92,54 +92,54 @@ export const Navbar: React.FC<NavbarProps> = ({
           </a>
 
           {/* DESKTOP NAVIGATION (CENTERED) */}
-          <nav className="hidden lg:flex items-center gap-1 bg-zinc-900/80 p-1.5 rounded-full border border-zinc-800/80 shadow-inner lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+          <nav className="hidden lg:flex items-center gap-1 bg-zinc-900/80 p-1.5 rounded-full border border-zinc-800/80 shadow-inner lg:absolute lg:left-1/2 lg:-translate-x-1/2 motion-fade-down">
             <a
               href="/"
               onClick={(e) => handleNavClick('/', e)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 (activeTab === 'home' || currentPath === '/') && !selectedServiceId
-                  ? 'bg-amber-400 text-zinc-950 shadow-md shadow-amber-400/20 font-bold'
+                  ? 'bg-amber-400 text-zinc-950 shadow-md shadow-amber-400/20 font-bold scale-102'
                   : 'text-zinc-300 hover:text-white hover:bg-zinc-800/60'
               }`}
             >
-              Inicio
+              <span className="motion-btn-text">Inicio</span>
             </a>
 
             <a
               href="/nosotros"
               onClick={(e) => handleNavClick('/nosotros', e)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 activeTab === 'quienes-somos' || activeTab === 'nosotros' || currentPath === '/nosotros'
-                  ? 'bg-amber-400 text-zinc-950 shadow-md shadow-amber-400/20 font-bold'
+                  ? 'bg-amber-400 text-zinc-950 shadow-md shadow-amber-400/20 font-bold scale-102'
                   : 'text-zinc-300 hover:text-white hover:bg-zinc-800/60'
               }`}
             >
-              Nosotros
+              <span className="motion-btn-text">Nosotros</span>
             </a>
 
             {/* DIRECT BUTTON TO MAIN SERVICES PAGE */}
             <a
               href="/servicios"
               onClick={(e) => handleNavClick('/servicios', e)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 activeTab === 'servicios' || currentPath === '/servicios' || (activeTab.startsWith('servicio-') && !selectedServiceId)
-                  ? 'bg-amber-400 text-zinc-950 shadow-md shadow-amber-400/20 font-bold'
+                  ? 'bg-amber-400 text-zinc-950 shadow-md shadow-amber-400/20 font-bold scale-102'
                   : 'text-zinc-300 hover:text-white hover:bg-zinc-800/60'
               }`}
             >
-              Servicios
+              <span className="motion-btn-text">Servicios</span>
             </a>
 
             <a
               href="/contacto"
               onClick={(e) => handleNavClick('/contacto', e)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 activeTab === 'contacto' || currentPath === '/contacto'
-                  ? 'bg-amber-400 text-zinc-950 shadow-md shadow-amber-400/20 font-bold'
+                  ? 'bg-amber-400 text-zinc-950 shadow-md shadow-amber-400/20 font-bold scale-102'
                   : 'text-zinc-300 hover:text-white hover:bg-zinc-800/60'
               }`}
             >
-              Contacto
+              <span className="motion-btn-text">Contacto</span>
             </a>
           </nav>
 

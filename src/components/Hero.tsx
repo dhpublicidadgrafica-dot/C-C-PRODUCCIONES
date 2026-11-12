@@ -71,7 +71,7 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-8">
         
         {/* MAIN HEADLINE */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.05] max-w-5xl mx-auto font-poppins uppercase">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.05] max-w-5xl mx-auto font-poppins uppercase motion-fade-up">
           TRANSFORMAMOS TUS <br className="hidden sm:inline" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-400">
             SUEÑOS EN EVENTOS
@@ -80,19 +80,19 @@ export const Hero: React.FC<HeroProps> = ({
         </h1>
 
         {/* SUBTITLE COPYWRITING */}
-        <p className="mt-6 text-base sm:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed font-poppins font-normal">
+        <p className="mt-6 text-base sm:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed font-poppins font-normal motion-fade-up motion-delay-150">
           Producción y logística integral para eventos corporativos y sociales de alto nivel.
         </p>
 
         {/* CALL TO ACTION BUTTONS */}
-        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto motion-fade-up motion-delay-250">
           
           <button
             onClick={onOpenQuoteModal}
             className="px-8 py-3.5 rounded-full bg-white text-black font-bold text-xs uppercase tracking-wider hover:bg-[#C99327] hover:text-black transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#C99327]/20 group cursor-pointer"
             id="hero-cotizar-btn"
           >
-            <span>Cotizar Ahora</span>
+            <span className="motion-btn-text">Cotizar Ahora</span>
             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
 

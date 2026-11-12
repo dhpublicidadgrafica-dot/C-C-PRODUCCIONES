@@ -20,6 +20,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       <ServicesGrid
         onSelectService={onSelectService}
         onOpenQuoteModalWithService={(id) => onOpenQuoteModal(id)}
+        asH1={true}
+        customTitle="Nuestros Servicios"
       />
 
       {/* FAQS FOR SERVICES */}

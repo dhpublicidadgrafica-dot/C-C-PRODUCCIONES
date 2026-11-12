@@ -13,7 +13,11 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
-export const ContactSection: React.FC = () => {
+interface ContactSectionProps {
+  asH1?: boolean;
+}
+
+export const ContactSection: React.FC<ContactSectionProps> = ({ asH1 = false }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -113,14 +117,20 @@ export const ContactSection: React.FC = () => {
         
         {/* HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C99327]/10 border border-[#C99327]/30 text-[#C99327] text-xs font-poppins font-normal uppercase tracking-widest mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C99327]/10 border border-[#C99327]/30 text-[#C99327] text-xs font-poppins font-normal uppercase tracking-widest mb-3 motion-fade-down">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Atención Directa & Cotización</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold text-white font-poppins tracking-tight">
-            Ponte en Contacto con un Asesor Técnico
-          </h2>
-          <p className="mt-4 text-base text-zinc-400 font-poppins font-normal">
+          {asH1 ? (
+            <h1 className="text-3xl sm:text-5xl font-bold text-white font-poppins tracking-tight motion-fade-up">
+              Ponte en Contacto con Nosotros
+            </h1>
+          ) : (
+            <h2 className="text-3xl sm:text-5xl font-bold text-white font-poppins tracking-tight motion-fade-up">
+              Ponte en Contacto con Nosotros
+            </h2>
+          )}
+          <p className="mt-4 text-base text-zinc-400 font-poppins font-normal motion-fade-up motion-delay-150">
             Estamos listos para hacer realidad tu evento. Respuesta prioritaria e inmediata.
           </p>
         </div>
@@ -319,10 +329,10 @@ export const ContactSection: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 sm:py-3.5 rounded-xl bg-[#C99327] hover:bg-[#B27F1C] text-zinc-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#C99327]/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3 sm:py-3.5 rounded-xl bg-[#C99327] hover:bg-[#B27F1C] text-zinc-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#C99327]/20 transition-all flex items-center justify-center gap-2 cursor-pointer group"
                 >
-                  <Send className="w-4 h-4" />
-                  {isSubmitting ? 'Enviando Solicitud...' : 'Enviar Solicitud de Cotización'}
+                  <Send className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                  <span className="motion-btn-text">{isSubmitting ? 'Enviando Solicitud...' : 'Enviar Solicitud de Cotización'}</span>
                 </button>
 
                 <div className="flex items-center justify-center gap-2 text-[11px] text-zinc-400 font-mono pt-1 text-center">

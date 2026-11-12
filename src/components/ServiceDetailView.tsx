@@ -87,21 +87,21 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
           </div>
 
           <div className="relative z-10 max-w-2xl space-y-6">
-            <h1 className="text-3xl sm:text-5xl font-bold text-white font-poppins tracking-tight leading-tight uppercase">
+            <h1 className="text-3xl sm:text-5xl font-bold text-white font-poppins tracking-tight leading-tight uppercase motion-fade-up">
               {service.name}
             </h1>
 
-            <p className="text-base text-zinc-200 leading-relaxed font-normal">
+            <p className="text-base text-zinc-200 leading-relaxed font-normal motion-fade-up motion-delay-150">
               {service.fullDesc}
             </p>
 
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-4 motion-fade-up motion-delay-250">
               <button
                 onClick={onOpenQuoteForService}
-                className="px-8 py-3.5 rounded-full bg-[#C99327] hover:bg-[#B27F1C] text-zinc-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#C99327]/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="px-8 py-3.5 rounded-full bg-[#C99327] hover:bg-[#B27F1C] text-zinc-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#C99327]/20 transition-all flex items-center justify-center gap-2 cursor-pointer group"
               >
-                <Calculator className="w-4 h-4" />
-                <span>Cotizar Ahora</span>
+                <Calculator className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <span className="motion-btn-text">Cotizar Ahora</span>
               </button>
 
               <div className="text-xs text-zinc-400 font-mono flex items-center gap-2">

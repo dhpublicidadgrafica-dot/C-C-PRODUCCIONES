@@ -23,7 +23,7 @@ export const AboutUs: React.FC = () => {
         {/* MISSION, VISION, VALUES GRID */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           
-          <div className="bg-zinc-50 border border-zinc-200/80 p-8 rounded-3xl space-y-4 hover:border-[#C99327]/50 shadow-sm transition-colors">
+          <div className="bg-zinc-50 border border-zinc-200/80 p-8 rounded-3xl space-y-4 hover:border-[#C99327]/50 shadow-sm transition-colors text-center md:text-left flex flex-col items-center md:items-start">
             <div className="w-12 h-12 rounded-2xl bg-[#C99327]/15 text-[#C99327] flex items-center justify-center font-bold">
               <Target className="w-6 h-6" />
             </div>
@@ -33,7 +33,7 @@ export const AboutUs: React.FC = () => {
             </p>
           </div>
 
-          <div className="bg-zinc-50 border border-zinc-200/80 p-8 rounded-3xl space-y-4 hover:border-[#C99327]/50 shadow-sm transition-colors">
+          <div className="bg-zinc-50 border border-zinc-200/80 p-8 rounded-3xl space-y-4 hover:border-[#C99327]/50 shadow-sm transition-colors text-center md:text-left flex flex-col items-center md:items-start">
             <div className="w-12 h-12 rounded-2xl bg-[#C99327]/15 text-[#C99327] flex items-center justify-center font-bold">
               <Eye className="w-6 h-6" />
             </div>
@@ -43,7 +43,7 @@ export const AboutUs: React.FC = () => {
             </p>
           </div>
 
-          <div className="bg-zinc-50 border border-zinc-200/80 p-8 rounded-3xl space-y-4 hover:border-[#C99327]/50 shadow-sm transition-colors">
+          <div className="bg-zinc-50 border border-zinc-200/80 p-8 rounded-3xl space-y-4 hover:border-[#C99327]/50 shadow-sm transition-colors text-center md:text-left flex flex-col items-center md:items-start">
             <div className="w-12 h-12 rounded-2xl bg-[#C99327]/15 text-[#C99327] flex items-center justify-center font-bold">
               <Heart className="w-6 h-6" />
             </div>

@@ -18,6 +18,8 @@ import { SERVICE_FALLBACK_IMAGES } from '../data/fallbackImages';
 interface ServicesGridProps {
   onSelectService: (id: ServiceId) => void;
   onOpenQuoteModalWithService: (id: ServiceId) => void;
+  asH1?: boolean;
+  customTitle?: string;
 }
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -34,9 +36,12 @@ const ICON_MAP: Record<string, React.ElementType> = {
 
 export const ServicesGrid: React.FC<ServicesGridProps> = ({
   onSelectService,
-  onOpenQuoteModalWithService
+  onOpenQuoteModalWithService,
+  asH1 = false,
+  customTitle
 }) => {
   const sonidoImage = SERVICES_DATA.find((s) => s.id === 'sonido-profesional')?.heroImage || SERVICES_DATA[0]?.heroImage;
+  const titleText = customTitle || 'Nuestros Servicios';
 
   return (
     <section className="py-24 bg-[#050505] text-white relative overflow-hidden" id="servicios-section">
@@ -62,10 +67,16 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({
         
         {/* SECTION HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight font-poppins">
-            NUESTRO PORTAFOLIO
-          </h2>
-          <p className="mt-4 text-base text-gray-400 font-poppins font-normal">
+          {asH1 ? (
+            <h1 className="text-3xl sm:text-5xl font-bold text-white tracking-tight font-poppins motion-fade-up">
+              {titleText}
+            </h1>
+          ) : (
+            <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight font-poppins motion-fade-up">
+              {titleText}
+            </h2>
+          )}
+          <p className="mt-4 text-base text-gray-400 font-poppins font-normal motion-fade-up motion-delay-150">
             Equipamiento de última generación, ingeniería certificada y soporte técnico continuo para garantizar ejecuciones de nivel mundial.
           </p>
         </div>
@@ -115,7 +126,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({
                       }}
                       className="block"
                     >
-                      <h3 className="text-xl font-bold text-white font-poppins group-hover:text-[#C99327] transition-colors">
+                      <h3 className="text-xl font-bold text-white font-poppins group-hover:text-[#C99327] transition-colors motion-interactive-heading">
                         {service.name}
                       </h3>
                     </a>
@@ -132,9 +143,9 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({
                         e.preventDefault();
                         onSelectService(service.id);
                       }}
-                      className="w-full py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-gray-200 hover:text-white text-xs font-semibold tracking-wider flex items-center justify-center gap-1.5 transition-colors cursor-pointer text-center"
+                      className="w-full py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-gray-200 hover:text-white text-xs font-semibold tracking-wider flex items-center justify-center gap-1.5 transition-colors cursor-pointer text-center group/btn"
                     >
-                      Ver Más... <ArrowRight className="w-3.5 h-3.5 text-[#C99327]" />
+                      <span className="motion-btn-text">Ver Más...</span> <ArrowRight className="w-3.5 h-3.5 text-[#C99327] group-hover/btn:translate-x-1 transition-transform" />
                     </a>
                   </div>
 
