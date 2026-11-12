@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { EventCategory, ServiceId } from '../types';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { CONCIERTO_PORTFOLIO_FALLBACK } from '../data/fallbackImages';
 
 interface PortfolioGalleryProps {
   onOpenQuoteModal: () => void;
@@ -84,6 +85,14 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
                   src={project.coverImage}
                   alt={project.title}
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const fallback = project.category === 'concierto' 
+                      ? CONCIERTO_PORTFOLIO_FALLBACK 
+                      : (project.images && project.images[0]) || CONCIERTO_PORTFOLIO_FALLBACK;
+                    if (fallback && e.currentTarget.src !== fallback) {
+                      e.currentTarget.src = fallback;
+                    }
+                  }}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />

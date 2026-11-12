@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { ServiceId } from '../types';
 import { SERVICES_DATA } from '../data/servicesData';
+import { SERVICE_FALLBACK_IMAGES } from '../data/fallbackImages';
 
 interface ServicesGridProps {
   onSelectService: (id: ServiceId) => void;
@@ -86,6 +87,12 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({
                     src={service.heroImage}
                     alt={service.name}
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const fb = SERVICE_FALLBACK_IMAGES[service.id]?.hero;
+                      if (fb && e.currentTarget.src !== fb) {
+                        e.currentTarget.src = fb;
+                      }
+                    }}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />

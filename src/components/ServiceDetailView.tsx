@@ -9,6 +9,7 @@ import {
   X
 } from 'lucide-react';
 import { ServiceItem } from '../types';
+import { SERVICE_FALLBACK_IMAGES } from '../data/fallbackImages';
 
 interface ServiceDetailViewProps {
   service: ServiceItem;
@@ -74,6 +75,12 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
               src={service.heroImage} 
               alt={service.seoTitle} 
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                const fb = SERVICE_FALLBACK_IMAGES[service.id]?.hero;
+                if (fb && e.currentTarget.src !== fb) {
+                  e.currentTarget.src = fb;
+                }
+              }}
               className="w-full h-full object-cover filter brightness-50 contrast-125"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/85 to-transparent" />
@@ -117,6 +124,13 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
               src={galleryImages[currentSlideIndex]} 
               alt={`${service.name} Imagen ${currentSlideIndex + 1}`}
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                const fbList = SERVICE_FALLBACK_IMAGES[service.id]?.gallery;
+                const fb = (fbList && fbList[currentSlideIndex]) || fbList?.[0] || SERVICE_FALLBACK_IMAGES[service.id]?.hero;
+                if (fb && e.currentTarget.src !== fb) {
+                  e.currentTarget.src = fb;
+                }
+              }}
               className="w-full h-full object-cover transition-all duration-700 filter brightness-95 group-hover:scale-105"
             />
             
@@ -177,6 +191,13 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                     src={img} 
                     alt={`Miniatura ${idx + 1}`}
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const fbList = SERVICE_FALLBACK_IMAGES[service.id]?.gallery;
+                      const fb = (fbList && fbList[idx]) || fbList?.[0] || SERVICE_FALLBACK_IMAGES[service.id]?.hero;
+                      if (fb && e.currentTarget.src !== fb) {
+                        e.currentTarget.src = fb;
+                      }
+                    }}
                     className="w-full h-full object-cover"
                   />
                   <span className={`absolute top-1 left-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-bold ${
@@ -214,6 +235,13 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
               src={galleryImages[currentSlideIndex]} 
               alt="Vista ampliada" 
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                const fbList = SERVICE_FALLBACK_IMAGES[service.id]?.gallery;
+                const fb = (fbList && fbList[currentSlideIndex]) || fbList?.[0] || SERVICE_FALLBACK_IMAGES[service.id]?.hero;
+                if (fb && e.currentTarget.src !== fb) {
+                  e.currentTarget.src = fb;
+                }
+              }}
               className="max-w-full max-h-[80vh] object-contain mx-auto rounded-2xl shadow-2xl border border-zinc-800"
             />
             <div className="text-center mt-4 text-xs font-mono text-zinc-400">
